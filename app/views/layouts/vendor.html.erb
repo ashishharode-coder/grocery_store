@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SSK-Vendor</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.11/semantic.min.css">
+
+
+    <%= stylesheet_link_tag 'vendor', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'vendor', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <% if seller_signed_in? %>
+    <body class="sb-nav-fixed">
+      <%= render 'layouts/vendors/header' %>
+      <div id="layoutSidenav">
+        <%= render 'layouts/vendors/sidenav' %>
+        <div id="layoutSidenav_content">
+          <%= yield %>
+          <%= render 'layouts/vendors/footer' %>
+        </div>
+      </div>
+    </body>
+  <% else %>
+    <%= yield %>
+  <% end %>
+  <%= javascript_include_tag 'vendors/highcharts', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'vendors/exporting', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'vendors/export-data', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'vendors/accessibility', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'vendors/scripts', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'vendors/chart', 'data-turbolinks-track': 'reload' %>
+</html>

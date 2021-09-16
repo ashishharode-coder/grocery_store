@@ -1,0 +1,42 @@
+<body class="bg-sign">
+  <div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+      <main>
+        <div class="container">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="row justify-content-center">
+              <div class="col-lg-5">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                  <div class="card-header card-sign-header">
+                    <h3 class="text-center font-weight-light my-4">Login</h3>
+                  </div>
+                  <div class="card-body">
+                    <form>
+                      <div class="form-group">
+                        <label class="form-label" for="seller_email">Email*</label>
+                        <%= f.email_field :email, class: "form-control py-3", placeholder: "Enter email address" %>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="seller_password">Password*</label>
+                        <%= f.password_field :password, class: "form-control py-3", placeholder: "Enter password" %>
+                      </div>
+                      <div class="form-group">
+                        <div class="custom-control custom-checkbox">
+                          <%= f.check_box :remember_me, class: "custom-control-input" %>
+                          <label class="custom-control-label" for="seller_remember_me">Remember password</label>
+                        </div>
+                      </div>
+                      <div class="form-group d-flex align-items-center justify-content-between mt-4 mb-0">
+                        <%= f.submit "Login", class: "btn btn-sign hover-btn" %>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </main>
+    </div>
+  </div>
+</body>
