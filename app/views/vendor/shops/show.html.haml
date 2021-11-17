@@ -1,0 +1,80 @@
+%main
+  .container-fluid
+    %h2.mt-30.page-title Shops
+    %ol.breadcrumb.mb-30
+      %li.breadcrumb-item
+        %a{href: "index.html"} Dashboard
+      %li.breadcrumb-item
+        %a{href: "shops.html"} Shops
+      %li.breadcrumb-item.active Shop view
+    .row
+      .col-lg-4.col-md-5
+        .card.card-static-2.mb-30
+          .card-body-table
+            .shop-content-left.pd-20
+              .shop_img
+                = image_tag(url_for(@shop.image))
+                %img{alt: "", src: "images/shop.svg"}/
+              .shop-dt-left
+                %h4= @shop&.name
+                %span= @shop&.address
+        .card.card-static-2.mb-30
+          .card-body-table
+            .shopowner-content-left.pd-20
+              .shopowner-dt-left
+                %h4= current_seller&.name
+                %span Shop Owner
+              .shopowner-dts
+                .shopowner-dt-list
+                  %span.left-dt Phone
+                  %span.right-dt= current_seller&.mobile_number
+                .shopowner-dt-list
+                  %span.left-dt Email
+                  %span.right-dt= current_seller&.email
+                .shopowner-dt-list
+                  %span.left-dt Address
+                  %span.right-dt= current_seller&.address
+                .shopowner-dt-list
+                  %span.left-dt City
+                  %span.right-dt= current_seller&.city
+      .col-lg-8.col-md-7
+        .card.card-static-2.mb-30
+          .card-body-table
+            .shopowner-content-left.pd-20
+              .shopowner-dts.mt-0
+                .shopowner-dt-list
+                  %span.left-dt Name :
+                  %span.right-dt= @shop&.name
+                .shopowner-dt-list
+                  %span.left-dt Area
+                  %span.right-dt= @shop&.area
+                .shopowner-dt-list
+                  %span.left-dt Location
+                  %span.right-dt= @shop&.city
+                .shopowner-dt-list
+                  %span.left-dt Delivery Charge
+                  %span.right-dt $12
+                .shopowner-dt-list
+                  %span.left-dt Latitude
+                  %span.right-dt= @shop&.lat
+                .shopowner-dt-list
+                  %span.left-dt Longitude
+                  %span.right-dt= @shop&.long
+                .shopowner-dt-list
+                  %span.left-dt Current Status
+                  %span.right-dt Yes
+                .shopowner-dt-list
+                  %span.left-dt Status
+                  %span.right-dt Active
+                .shopowner-dt-list
+                  %span.left-dt Opening Time
+                  %span.right-dt= @shop&.opening_time
+                .shopowner-dt-list
+                  %span.left-dt Close Time
+                  %span.right-dt= @shop&.closing_time
+                .shopowner-dt-list
+                  %span.left-dt Address
+                  %span.right-dt= @shop&.address
+                .shopowner-dt-list
+                  %span.left-dt Description
+                  %span.right-dt= @shop&.description

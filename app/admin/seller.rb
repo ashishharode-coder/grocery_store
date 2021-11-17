@@ -14,4 +14,20 @@ ActiveAdmin.register Seller do
     column :pin_code
     actions
   end
+
+  form do |f|
+    f.inputs "Seller Details" do
+      f.input :email 
+      f.input :first_name
+      f.input :last_name
+      f.input :mobile_number
+      f.input :address
+      f.input :city
+      f.input :state
+      f.input :pin_code
+      f.input :password
+      f.input :password_confirmation
+    end
+    f.button :Submit
+  end
 end

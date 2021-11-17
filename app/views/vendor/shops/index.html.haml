@@ -1,0 +1,67 @@
+%main
+  .container-fluid
+    %h2.mt-30.page-title Shops
+    %ol.breadcrumb.mb-30
+      %li.breadcrumb-item
+        %a{href: "index.html"} Dashboard
+      %li.breadcrumb-item.active Shops
+    .row.justify-content-between
+      .col-lg-12
+        %a.add-btn.hover-btn{href: "add_shop.html"} Add New
+      .col-lg-3.col-md-4
+        .bulk-section.mt-30
+          .input-group
+            %select#action.form-control{name: "action"}
+              %option{selected: "selected"} Bulk Actions
+              %option{value: "1"} Active
+              %option{value: "2"} Inactive
+              %option{value: "3"} Delete
+            .input-group-append
+              %button.status-btn.hover-btn{type: "submit"} Apply
+      .col-lg-5.col-md-6
+        .bulk-section.mt-30
+          .search-by-name-input
+            %input.form-control{placeholder: "Search"}/
+          .input-group
+            %select#categeory.form-control{name: "categeory"}
+              %option{selected: "selected"} Active
+              %option{value: "1"} Inactive
+            .input-group-append
+              %button.status-btn.hover-btn{type: "submit"} Search Product
+      .col-lg-12.col-md-12
+        .card.card-static-2.mt-30.mb-30
+          .card-title-2
+            %h4 All Shops
+          .card-body-table
+            .table-responsive
+              %table.table.ucp-table.table-hover
+                %thead
+                  %tr
+                    %th{style: "width:60px"}
+                      %input.check-all{type: "checkbox"}/
+                    %th{style: "width:60px"} ID
+                    %th Image
+                    %th Name
+                    %th Owner Name
+                    %th{style: "width: 200px;"} Locations
+                    %th{style: "width: 120px;"} Status
+                    %th{style: "width: 150px;"} Action
+                %tbody
+                  - [@shop].compact.each_with_index do |shop, index|
+                    %tr
+                      %td
+                        %input.check-item{name: "ids[]", type: "checkbox", value: "5"}/
+                      %td= index+1
+                      %td= image_tag(url_for(shop.image), width: "50px", height: "50px")
+                      %td= shop.name
+                      %td= shop.seller.name
+                      %td= shop.address
+                      %td
+                        %span.badge-item.badge-status Active
+                      %td.action-btns
+                        = link_to vendor_shop_path(@shop), class: "view-shop-btn" do
+                          %i.fas.fa-eye
+                        %a.list-btn{href: "shop_products.html"}
+                          %i.fas.fa-list-alt
+                        %a.edit-btn{href: "#"}
+                          %i.fas.fa-edit

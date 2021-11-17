@@ -37,8 +37,7 @@ ActiveAdmin.register Shop do
       f.input :state
       f.input :pin_code
       f.input :description
-
     end
     f.button :Submit
-  end 
+  end
 end

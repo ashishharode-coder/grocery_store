@@ -60,7 +60,11 @@
         <div class="collapse" id="collapseShops" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
           <nav class="sb-sidenav-menu-nested nav">
             <%= link_to "My shops", vendor_shops_path, class: "nav-link sub_nav_link" %>
-            <a class="nav-link sub_nav_link" href="add_shop.html">Add Shop</a>
+            <% if @shop&.id.present? %>
+              <%= link_to "Edit Shop", edit_vendor_shop_path(@shop), class: "nav-link sub_nav_link" %>
+            <% else %>
+              <%= link_to "Add Shop", new_vendor_shop_path, class: "nav-link sub_nav_link" %>
+            <% end %>
           </nav>
         </div>
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">
